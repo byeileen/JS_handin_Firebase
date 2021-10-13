@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Databases</title>
+    <style>
+      .d-none{
+        display: none;
+      };
+      .flex-column{
+        flex-direction: column;
+      };
+    </style>
+</head>
+<body>
+  <div class="container my-5">
+
+    <div class="d-flex w-100 mb-3 row">
+      <div class="col">
+        <input type="text" name="" id="searchbar" placeholder="Search for notes" class="form-control">
+      </div>
+      <div class="col-8"></div>
+    </div>
+
+    <div class="row"> 
+      <div class="col-md-6">
+        <h2>Notes</h2>
+          <label for="">Filter important notes:</label><input class="form-check-input" type="checkbox" value="" id="filter"/>
+          <ul>
+          </ul>
+      </div>
+      <div class="col-md-6">
+
+        <form class="d-flex flex-column">
+          <h2>Add a new note</h2>
+
+          <label for="title" class="form-label">Title</label>
+          <input type="text" class="form-control mb-2" id="title" required>
+
+          <label for="body" class="form-label">Body</label>
+          <textarea type="text" class="form-control mb-2" id="body" required></textarea>
+
+          <div class="form-check">
+            <input class="form-check-input mb-2" type="checkbox" id="checkbox">
+            <label class="form-check-label mb-2" for="checkbox">Mark as important</label>
+          </div>
+
+          <input type="submit" value="add" class="btn btn-outline-success mb-2">
+        </form>
+
+        <form class="d-flex flex-column" id="update_form">
+          <h2>Update a note</h2>
+          <label for="">Click the update button for a chosen note</label>
+          <label for="update_id" class="form-label">ID</label>
+          <input type="text" class="form-control mb-2" id="update_id" readonly>
+
+          <label for="update_title" class="form-label">Title</label>
+          <input type="text" class="form-control mb-2" id="update_title">
+
+          <label for="update_body" class="form-label">Body</label>
+          <textarea type="text" class="form-control mb-2" id="update_body"></textarea>
+
+          <div class="form-check">
+            <input class="form-check-input mb-2" type="checkbox" id="update_important">
+            <label class="form-check-label mb-2" for="update_important">
+              Important
+            </label>
+          </div>
+
+          <button class="btn btn-info" type="submit" id="update_btn">Update</button>
+        </form>
+      </div>
+    </div>
+    
+  </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script>
+        // initialize Firebase
+        const firebaseConfig = {
+          apiKey: "AIzaSyAYvQWeGFNjSUCps-d1LGc1Y4o6-zNugzc",
+          authDomain: "udemy-modern-javascript-4b4e9.firebaseapp.com",
+          projectId: "udemy-modern-javascript-4b4e9",
+          storageBucket: "udemy-modern-javascript-4b4e9.appspot.com",
+          messagingSenderId: "813759108854",
+          appId: "1:813759108854:web:302f15fc0790cb283bbed7"
+        };
+      
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();  
+      </script>
+
+    <script src="main.js"></script>
+</body>
+</html>
